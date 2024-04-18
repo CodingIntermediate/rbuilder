@@ -1,0 +1,78 @@
+{% extends 'userheaderFooter.html' %}
+{% block content %}
+{% load static %}
+
+<!-- <style>
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(83, 80, 80); */
+ }
+ table{
+    border-radius: 10px;
+    border-collapse: collapse;
+    height: 140px;
+    font-size: 1.1rem;
+ }
+ th,td{
+    text-align: center;
+    padding: 8px;
+ }	
+ tr:nth-child(even)
+ {
+    background-color: rgb(173, 190, 206);
+ }
+ a{
+    text-decoration: none;
+    font-size:1.1rem;
+ }
+</style> -->
+<body>
+
+    <table border="1">
+        <caption style="font-size: 40x; color: rgb(0, 0, 0);margin: -5px 0px 5px 0px;">Applied Jobs and Details</caption>
+        <tr>
+            <th>Job Category</th>
+            <th>Job Name</th>
+            <th>Salary</th>
+            <th>Job Details</th>
+            <th>Last Date For Application</th>
+            <th>Actions</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{ d.job_id.Job_Category }}</td>
+            <td>{{ d.job_id.Job_Name }}</td>
+            <td>{{ d.job_id.Salary }}</td>
+            <td>{{ d.job_id.Job_Details }}</td>
+            <td>{{ d.job_id.Last_Date_For_Application }}</td>
+            <!-- create a canacel button -->
+            <td>
+                
+                {% if d.canacel == '0' %}
+                    <a href="../cancel/{{ d.application_id }}" >Cancel</a>
+                {% elif d.canacel == '1' %}
+                    <a href="../cancel/{{ d.application_id }}" >Canceled</a>
+                {% endif %}
+
+            </td>
+            <td>
+                <a href="../InterviewDetails/{{ d.application_id }}">Interview Details</a>
+            </td> 
+            <td>
+                <a href="../chat/{{ d.application_id }}" >Chat</a>
+            </td>
+        </tr>
+        {% endfor%}
+    </table>
+</body>
+
+{% endblock %}
