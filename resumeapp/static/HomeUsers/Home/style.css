@@ -475,12 +475,14 @@ img {
 
 /* :: 4.0 Header Area CSS */
 .header-area {
-  position: absolute;
+  /* position: static; */
   z-index: 1000;
   width: 100%;
-  top: 20px;
+  top: 0px;
   left: 0;
   z-index: 1000;
+  background-color: black;
+
 }
 
 .header-area .oneMusic-main-menu {

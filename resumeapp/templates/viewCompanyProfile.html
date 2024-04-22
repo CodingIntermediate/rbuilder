@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Me</title>
+{% extends 'adminheaderFooter.html' %}
+<!-- {% load static %} -->
+{% block content %}
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       
         body {
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(29, 97, 117, 0.774);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; /* Add some space between cards */
-            padding: 20px; /* Add some padding around the content */
+            background-color: rgba(66, 66, 66, 0.774);
+
         }
         .profile-card {
             background-color: rgb(56, 55, 55);
@@ -29,22 +15,26 @@
             width: calc(33.333% - 40px); /* Three cards per row, accounting for gap */
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            font-size: 1.2rem;
-            color: rgb(221, 219, 219);
-            /* width: auto 200px; */
+            color: rgb(29, 134, 148);
         }
         .profile-card h3 {
             margin-bottom: 15px;
-            color: #838181;
+            color: #c7c6bc;
             text-align: center;
             font-size: 2rem;
         }
+        .profile-card p {
+            font-size: 1.2rem;
+            color:rgb(250, 252, 252);
+            text-align: left;
+            
+        }
+        
         .profile-card a {
             align-self: center;
             text-decoration: none;
             background-color: #007bff;
-            color: white;
+            color: rgb(245, 241, 241);
             padding: 10px 15px;
             border-radius: 5px;
             padding: 10px;
@@ -64,9 +54,9 @@
             }
         }
     </style>
-</head>
+   
 <body>
-    {% for da in data %}
+    <center>  {% for da in data %}
     <div class="profile-card">
         <h3>{{da.Organization_Category}}</h3>
         <p>Business Name:   {{ da.Business_Name }}</p>
@@ -79,5 +69,7 @@
         <a href="../editCompanyProfile/{{ da.regid }}">Edit</a>
     </div>
     {% endfor %}
+</center>
+  
 </body>
-</html>
+{% endblock %}
