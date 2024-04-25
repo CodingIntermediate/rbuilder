@@ -74,6 +74,7 @@ urlpatterns=[
     path('search/', views.searchjobs, name='search'),
     # chat
     path('chat/<int:application_id>',views.chat,name='chat'),
+    # path('chatuser/<int:application_id>',views.chatusers,name='chatuser'),
     # # mssage send 
     # path('chat/', views.chat_view, name='chat'),
     # path('chatmessage/<int:application_id>/', views.chatmessage, name='chatmessage'),

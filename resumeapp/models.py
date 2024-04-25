@@ -70,6 +70,14 @@ class ChatModel(models.Model):
     receiver=models.ForeignKey(UserModel, related_name='received_messages', on_delete=models.CASCADE)
     message=models.CharField(max_length=500)
     date=models.DateTimeField(auto_now_add=True,null=True)
+
+class ChatModelAnother(models.Model):
+    # id=models.AutoField(primary_key=True)
+    Sender=models.ForeignKey(UserModel, related_name='sent_messages', on_delete=models.CASCADE)
+    Receiver=models.ForeignKey(RegModel, related_name='received_messages', on_delete=models.CASCADE)
+    message=models.CharField(max_length=500)
+    date=models.DateTimeField(auto_now_add=True,null=True)   
+    
 # -------------------------------------------------------------------6
  #create a model for ComplaintModel
 class ComplaintModel(models.Model):

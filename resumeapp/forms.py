@@ -1,5 +1,5 @@
 from django import forms
-from .models import RegModel,UserModel,LoginModel,VacancyModel,InterviewDetails,ComplaintModel
+from .models import RegModel,UserModel,LoginModel,VacancyModel,InterviewDetails,ComplaintModel,ChatModelAnother
 # below regform class is for companies ,starts here
 class RegForm(forms.ModelForm):
     # above.modelform was in-built
@@ -123,4 +123,19 @@ class ComplaintReplyForm(forms.ModelForm):
         widgets={
             'reply':forms.Textarea(),
         }
-
+# ------------------------------------------------------------------------------------
+# create a chatanother form
+class chatanotherForm(forms.ModelForm):
+    class Meta:
+        model=ChatModelAnother
+        fields=['message']
+        widgets={
+            'message':forms.Textarea(),
+        }
+class chatform(forms.ModelForm):
+    class Meta:
+        model=ChatModelAnother
+        fields=['message']
+        widgets={
+            'message':forms.Textarea(),
+        }

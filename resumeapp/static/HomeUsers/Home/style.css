@@ -475,7 +475,7 @@ img {
 
 /* :: 4.0 Header Area CSS */
 .header-area {
-  /* position: static; */
+  position: static;
   z-index: 1000;
   width: 100%;
   top: 0px;

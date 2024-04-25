@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import RegForm,UserForm,companyLoginForm,usersLoginForm,VacancyForm,InterviewForm,ComplaintForm,ComplaintReplyForm
-from .models import RegModel,UserModel,VacancyModel,JobApplication,InterviewDetails,ChatModel,ComplaintModel
+from .forms import RegForm,UserForm,companyLoginForm,usersLoginForm,VacancyForm,InterviewForm,ComplaintForm,chatform,ComplaintReplyForm,chatanotherForm
+from .models import RegModel,UserModel,VacancyModel,JobApplication,InterviewDetails,ChatModel,ComplaintModel,ChatModelAnother
 from datetime import datetime
 from django.contrib.auth import logout
 from django.db.models import Q
 from django.http import HttpResponse
+from django.utils.timezone import now
 # from django.contrib import message
 # below code is for company registeration view by admin
 def companyRegister(request):
@@ -312,13 +313,13 @@ def editInterviewDetails(request,application_id):
         form = InterviewForm(request.POST, instance=mydata)
         if form.is_valid():
             form.save()
-            return redirect('Appliedusers')  # Redirect to a success page after saving
+            return redirect('Appliedusers') # Redirect to a success page after saving
     else:
-        mydat=InterviewDetails.objects.get(application_id=application_id)
+        mydat = InterviewDetails.objects.get(application_id=application_id)
         form = InterviewForm(instance=mydat)
-    return render(request,'EditInterviewDetails.html',{'interviewEdit': form})
+    return render(request,'EditInterviewDetails.html',{'interviewEdit': form}) 
 # ------------------------------------------------------------------
-# create a view for search jobs
+# create a view for search jobs 
 def searchjobs(request):
     query = request.GET.get('search', '')  # Get the search term from the GET request
     if query:  # If there's a search term
@@ -331,7 +332,8 @@ def searchjobs(request):
         jobs = VacancyModel.objects.all()  # Display all jobs or none, as per your preference
 
     return render(request, 'Jobs.html', {'jobs': jobs, 'query': query})
-# ------------------------------------------------------------------
+# ===================================================================
+# ===================================================================
 # create a chat page
 def chat(request,application_id):
     # Assuming 'regid' is stored in the session to identify the sender
@@ -353,7 +355,51 @@ def chat(request,application_id):
         messages = ChatModel.objects.filter(sender=sender, receiver=receiver)
         # Pass messages to the template
     return render(request, 'chat.html', {'messages': messages})
-# ------------------------------------------------------------------
+# # ------------------------------------------------------------------
+# def chatusers(request,application_id):
+#     # Assuming 'regid' is stored in the session to identify the sender
+#     sender_id = request.session.get('userid')
+#     sender = get_object_or_404(UserModel, userid=sender_id)
+    
+#     # Retrieve the JobApplication and indirectly the receiver
+#     job_application = get_object_or_404(JobApplication, application_id=application_id)
+#     receiver = job_application.regid   
+
+#     if request.method == 'POST':
+#         message = request.POST.get('msg')
+#         # Create the chat message
+#         ChatModelAnother.objects.create(Sender=sender, Receiver=receiver, message=message)
+#         return redirect('chat', application_id=application_id)
+#     else:
+#         # GET request handling or initial page load
+#         # return render(request, 'chat.html') 
+#         messages = ChatModelAnother.objects.filter(Sender=sender, Receiver=receiver)
+#         # Pass messages to the template
+#     return render(request, 'chat.html', {'messages': messages})
+
+# def chat(request, application_id):
+#     userid = request.session.get('userid')
+#     usr = UserModel.objects.get(userid=userid)
+#     comny = RegModel.objects.get(application_id=application_id)
+
+#     if request.method == 'POST':
+#         form = chatanotherForm(request.POST)
+#         if form.is_valid():
+#             fm = form.save(commit=False)
+#             fm.sender = usr
+#             fm.receiver = comny
+#             fm.save()
+#             return redirect('chat', application_id=application_id)
+
+#     user_message = ChatModel.objects.filter(sender=usr).order_by('date')
+#     user_received_message = ChatModelAnother.objects.filter(Q(receiver=usr) | Q(receiver=comny)).order_by('date')
+#     all_messages = list(user_message) + list(user_received_message)
+#     all_messages.sort(key=lambda x: x.date)
+
+#     return render(request, 'chat.html', {'all_messages': all_messages})
+
+# =========================================================================
+# =========================================================================
 # create a complaint function
 def complaint(request):
     if request.method == 'POST':
@@ -395,6 +441,3 @@ def usercomplaintReplyView(request):
     uid=request.session.get('userid')
     response = ComplaintModel.objects.filter(sender_id=uid) 
     return render(request, 'complaintReplyView.html', {'complaintResponse': response})
-
-
-

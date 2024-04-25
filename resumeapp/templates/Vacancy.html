@@ -1,11 +1,56 @@
-{% extends 'adminheaderFooter.html' %}
+{% extends 'companyheaderFooter.html' %}
 <!-- {% load static %} -->
 {% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+    #container{
+        width: 300px;
+        height: 400px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        background-color: rgb(64, 75, 85);
+        border-radius: 8px;
+    }
+    #forme label{
+       color: white;
+       font-size: 1rem;
+    }
+    #forme input{
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        
+    }
+    input{
+        padding-left: 5px;
+    }
+   button{
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    width: 30%;
+    font-size: .9rem;
+    font-weight: 700;
+    outline: none;
+   }
+   button:focus{
+    cursor: pointer;
+    outline: none;
+
+   }
+</style>
 <body>
-    <form action="{% url 'Vacancy' %}" method="POST" >
-        {% csrf_token %}
-        {{ addvacancy.as_p }} 
-        <button type="submit">Apply</button>
-    </form>
+    <center>
+        <div id="container">
+            <form action="{% url 'Vacancy' %}" method="POST" id="forme">
+                {% csrf_token %}
+                {{ addvacancy.as_p }} 
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+    </center>
 </body>
 {% endblock %}
