@@ -52,10 +52,20 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="{% static 'HomeUsers/Home/index.html' %}">Home</a></li>
-                                    <li><a href="#">Login / Register</a>
+                                    <li><a href="#">Login</a>
                                         <ul class="dropdown" >
                                             <li><a href="{% url 'Login' usertype='User' %}">Candidates</a></li>
                                             <li><a href="{% url 'Login' usertype='company'%}">Company</a></li>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <ul>
+                                    <li><a href="#">Register</a>
+                                        <ul class="dropdown" >
+                                            <li><a href="{% url 'userRegister'  %}">Candidates</a></li>
+                                            <li><a href="{% url 'register' %}">Company</a></li>
                                             </li>
                                         </ul>
                                     </li>

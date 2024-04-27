@@ -24,8 +24,14 @@
         flex-direction: column;
         gap: 10px;
         font-size: 1.2rem;
-        color: rgb(14, 12, 12) ;
+        /* color: rgb(14, 12, 12) ; */
         /* width: auto 200px; */
+    }
+    .profile-card p{
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+
     }
     .profile-card .title_name {
         margin-bottom: 15px;
@@ -72,7 +78,7 @@
                 <p>Skills:         {{ da.Skills }}</p>
                 <p>Conatact_Number:          {{ da.Conatact_Number }}</p>
                 <p>Email:           {{ da.Email }}</p>
-                <a href="../editCompanyProfile/{{ da.regid }}">Edit</a>
+                <a href="../editUserProfile/{{ da.userid }}">Edit</a>
             </div>
             {% endfor %}
        

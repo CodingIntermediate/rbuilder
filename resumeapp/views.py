@@ -244,9 +244,9 @@ def editCompanyProfile(request,regid):
             form.save()
             return redirect('viewCompanyProfile')  # Redirect to a success page after saving
     else:
-        mydat=RegModel.objects.get(regid=regid)
-        form = RegForm(instance=mydat)
-    return render(request,'EditCompanyProfile.html',{'forms': form}) 
+        mydata=RegModel.objects.get(regid=regid)
+        form = RegForm(instance=mydata)
+    return render(request,'EditCompanyProfile.html',{'forms': form})
 # ================================================================================
 # create a function to view the profile of user data
 def userProfile(request) :

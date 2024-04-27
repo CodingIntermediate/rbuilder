@@ -4,21 +4,21 @@ from .models import RegModel,UserModel,LoginModel,VacancyModel,InterviewDetails,
 class RegForm(forms.ModelForm):
     # above.modelform was in-built
     # below uppecases are  for dropdown selection
-    STATES=(
-        ('selected','Select'),
-        ('keralam','Kerala'),
-        ('tamilndu','Tamil Nadu'),
-        ('antra','Andhra Pradesh')
-    )
-    states=forms.ChoiceField(choices=STATES,widget=forms.Select())
+    # STATES=(
+    #     ('selected','Select'),
+    #     ('keralam','Kerala'),
+    #     ('tamilndu','Tamil Nadu'),
+    #     ('antra','Andhra Pradesh')
+    # )
+    # states=forms.ChoiceField(choices=STATES,widget=forms.Select())
 
-    CITIES=(
-        ('selected','Select'),
-        ('ador','Adoor'),
-        ('kotarkra','Kottarakara'),
-        ('kotym','Kottayam')
-    )
-    cities=forms.ChoiceField(choices=CITIES,widget=forms.Select())
+    # CITIES=(
+    #     ('selected','Select'),
+    #     ('ador','Adoor'),
+    #     ('kotarkra','Kottarakara'),
+    #     ('kotym','Kottayam')
+    # )
+    # cities=forms.ChoiceField(choices=CITIES,widget=forms.Select())
     # above uppecases are  for dropdown selection
 
 
