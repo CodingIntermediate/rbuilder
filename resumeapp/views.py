@@ -129,7 +129,7 @@ def logins(request,usertype):
 # -------------------------------------------------------------------
 # to view adminpanel
 def admin(request):
-    return render(request,'Admin.html')
+    return render(request,'AdminPanel.html')
 #--------------------------------------------------
 #create HomeUsers function
 def HomeUsers(request):
@@ -155,7 +155,7 @@ def vacancyadding(request):
         if form.is_valid():
             var = form.save(commit=False)
             # Fetch the RegModel instance corresponding to the ID in `sess`
-            reg_instance = get_object_or_404(RegModel, pk=sess)
+            reg_instance = get_object_or_404(RegModel, pk=sess) 
             var.regid = reg_instance
             var.save()
             return redirect('Vacancy')  

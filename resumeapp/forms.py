@@ -54,7 +54,7 @@ class UserForm(forms.ModelForm):
         widgets={
             'Name':forms.TextInput(),
             'Gender':forms.Select(),
-            'Date_Of_Birth':forms.NumberInput(),
+            'Date_Of_Birth':forms.DateInput(),
             'Education':forms.TextInput(),
             'Skills':forms.TextInput(),
             'Conatact_Number':forms.NumberInput(),
@@ -93,7 +93,7 @@ class VacancyForm(forms.ModelForm):
             'Job_Name':forms.TextInput(),
             'Salary':forms.TextInput(),
             'Job_Details':forms.TextInput(),
-            'Last_Date_For_Application':forms.TextInput(),
+            'Last_Date_For_Application':forms.DateInput(),
         }
 # ------------------------------------------------------------------------------------
 # create a form for interviewdetails form

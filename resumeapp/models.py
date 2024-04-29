@@ -5,7 +5,7 @@ from django.conf import settings
 class RegModel(models.Model):
     regid=models.AutoField(primary_key=True)
     Organization_Category=models.CharField(max_length=100)
-    Business_Name=models.CharField(max_length=100)
+    Business_Name=models.CharField(max_length=100,blank=False,null=False)
     Address=models.TextField(max_length=100)
     States=models.CharField(max_length=100)
     Cities=models.CharField(max_length=100)
@@ -21,7 +21,7 @@ class UserModel(models.Model):
     userid=models.AutoField(primary_key=True)
     Name=models.CharField(max_length=100)
     Gender=models.CharField(max_length=50)
-    Date_Of_Birth=models.IntegerField(null=True)
+    Date_Of_Birth=models.DateField(null=True)
     Education=models.CharField(max_length=100)
     Skills=models.CharField(max_length=100)
     Conatact_Number=models.IntegerField(null=True)
@@ -43,7 +43,7 @@ class VacancyModel(models.Model):
     Job_Name=models.CharField(max_length=100)
     Salary=models.CharField(max_length=50)
     Job_Details=models.CharField(max_length=50)
-    Last_Date_For_Application=models.CharField(max_length=50)
+    Last_Date_For_Application=models.DateField(max_length=50)
 # -------------------------------------------------------------------4  
 #create a class for jobApplication for applied users
 class JobApplication(models.Model):
