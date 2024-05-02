@@ -64,24 +64,26 @@
         align-items: center;
         justify-content: center;
         padding: 20px 0px 20px 0px;
-        background-color:white;
+        background-color: white;
         /* flex-direction: row; */
         position: relative;
     }
-    #cards{
+
+    #cards {
         display: flex;
         justify-content: space-evenly;
         /* justify-content: end; */
         gap: 5rem;
 
     }
-    
-    #card_name{
+
+    #card_name {
         position: absolute;
         bottom: -50px;
         right: 1.8rem;
     }
-    #tail{
+
+    #tail {
         background-image: url('https://cdn.statically.io/img/timelinecovers.pro/facebook-cover/thumbs/abstract_blue_and_black_pixels-facebook-cover.jpg');
         height: 70vh;
         width: 100%;
@@ -92,16 +94,18 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        
+
 
     }
-    #tail_name{
+
+    #tail_name {
         position: absolute;
         font-size: 3rem;
-        color: rgb(143, 26, 26);
+        color: rgb(245, 33, 33);
         top: 10px;
     }
-    #tail_btn{
+
+    /* #tail_btn{
         position: absolute;
         background-color: #e49e06;
         padding: 6px 10px 6px 10px;
@@ -111,6 +115,39 @@
         font-size: 1.5rem;
         cursor: pointer;
         width: 20%;
+    } */
+
+    #tail_btn {
+
+        position: absolute;
+        background-color: rgb(235, 118, 9);
+        padding: 6px 10px 6px 10px;
+        border: none;
+        outline: none;
+        border-radius: 30px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        width: 20%;
+        border: .5px solid rgb(255, 174, 0);
+        transition: all 1s ease-in-out;
+        box-shadow: 0px 0px 10px rgb(202, 143, 66);
+
+
+    }
+
+    #mainBtn {
+        background-color: rgb(235, 118, 9);
+        width: 30%;
+        border-radius: 30px;
+        border: none;
+        padding: 10px 15px 10px 15px;
+        font-size: 1.3rem;
+        font-weight: 600px;
+        color: rgb(7, 7, 7);
+        box-shadow: 0px 0px 10px rgb(202, 143, 66);
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+
     }
 </style>
 
@@ -127,7 +164,9 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="../" class="nav-brand"><h2 style="color: white;font-size: 1.1rem;width: 200px;">Resume Builder</h2></a>
+                        <a href="../" class="nav-brand">
+                            <h2 style="color: white;font-size: 1.1rem;width: 200px;">Resume Builder</h2>
+                        </a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -176,7 +215,9 @@
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url('https://www.naukri.com/campus/career-guidance/wp-content/uploads/2023/08/resume.jpg');"></div>
+                <div class="slide-img bg-img"
+                    style="background-image: url('https://www.naukri.com/campus/career-guidance/wp-content/uploads/2023/08/resume.jpg');">
+                </div>
                 <!-- Slide Content -->
                 <div class="container">
                     <div class="row">
@@ -196,7 +237,9 @@
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(https://static.vecteezy.com/system/resources/previews/005/367/549/non_2x/illustration-of-resume-paper-with-magnifying-glass-suitable-for-design-element-of-job-vacancy-poster-recruitment-agency-website-background-and-resume-builder-service-vector.jpg);"></div>
+                <div class="slide-img bg-img"
+                    style="background-image: url(https://static.vecteezy.com/system/resources/previews/005/367/549/non_2x/illustration-of-resume-paper-with-magnifying-glass-suitable-for-design-element-of-job-vacancy-poster-recruitment-agency-website-background-and-resume-builder-service-vector.jpg);">
+                </div>
                 <!-- Slide Content -->
                 <div class="container">
                     <div class="row">
@@ -224,6 +267,8 @@
             <p id="main_descr">If a sheet of paper represents your entire work life,<br> personality, and skills, it
                 better be a pretty amazing piece <br> of paper — Let Resume-Builder do the heavy lifting.
             </p>
+            <button id="mainBtn">Create CV</button>
+
         </div>
         <div id="main_right">
             <div id="image_control">
@@ -240,17 +285,17 @@
             <div class="card">
                 <img src="https://assets.zety.com/lp/_next/image?url=/blobimages/zty/sem/images/step1.png&w=1920&h=undefined&q=100"
                     alt="">
-                    <h3 id="card_name">Pick a CV template.</h3>
-                </div>
+                <h3 id="card_name">Pick a CV template.</h3>
+            </div>
             <div class="card">
                 <img src="https://assets.zety.com/lp/_next/image?url=/blobimages/zty/sem/images/step2.png&w=1920&h=undefined&q=100"
                     alt="">
-                    <h3 id="card_name">Fill in the blanks.</h3>
-                </div>
+                <h3 id="card_name">Fill in the blanks.</h3>
+            </div>
             <div class="card">
                 <img src="https://assets.zety.com/lp/_next/image?url=/blobimages/zty/sem/images/step3.png&w=1920&h=undefined&q=100"
                     alt="">
-                    <h3 id="card_name">Customize your document.</h3>
+                <h3 id="card_name">Customize your document.</h3>
             </div>
         </div>
     </section>
@@ -258,11 +303,11 @@
 
     <!-- second last -->
     <section id="tail">
-        <h1 id="tail_name">Try Our professional <br> CV Builder now</h1>
+        <h1 id="tail_name">Try Our professional <br> CV Builder now.</h1>
         <button id="tail_btn">Land your dream job now</button>
     </section>
 
-    
+
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
@@ -273,11 +318,11 @@
                     <p class="copywrite-text"><a
                             href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved 
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
 
-               
+
             </div>
         </div>
     </footer>

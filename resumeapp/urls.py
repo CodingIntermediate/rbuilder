@@ -86,4 +86,6 @@ urlpatterns=[
     path('complaintReply/<int:pk>',views.complaintReply,name='complaintReply'),
     
     path('complaintReplyView/',views.usercomplaintReplyView,name='complaintReplyView'),
+    
+    path('resumebuild/',views.resume,name='resumebuild'),
 ]  

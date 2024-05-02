@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import RegForm,UserForm,companyLoginForm,usersLoginForm,VacancyForm,InterviewForm,ComplaintForm,chatform,ComplaintReplyForm,chatanotherForm
-from .models import RegModel,UserModel,VacancyModel,JobApplication,InterviewDetails,ChatModel,ComplaintModel,ChatModelAnother
+from .forms import RegForm,UserForm,companyLoginForm,usersLoginForm,VacancyForm,InterviewForm,ComplaintForm,chatform,ComplaintReplyForm,chatanotherForm,ResumeForm
+from .models import RegModel,UserModel,VacancyModel,JobApplication,InterviewDetails,ChatModel,ComplaintModel,ChatModelAnother,Resume
 from datetime import datetime
 from django.contrib.auth import logout
 from django.db.models import Q
@@ -397,3 +397,14 @@ def usercomplaintReplyView(request):
     response = ComplaintModel.objects.filter(sender_id=uid) 
     return render(request, 'complaintReplyView.html', {'complaintResponse': response})
 # hello
+
+# create a function for the resume form page
+def resume(request):
+    if request.method == 'POST':
+        form = ResumeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('UserPage')
+    else:
+        form = ResumeForm()
+    return render(request, 'Resume.html', {'form': form})

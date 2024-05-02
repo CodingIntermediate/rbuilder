@@ -1,5 +1,5 @@
 from django import forms
-from .models import RegModel,UserModel,LoginModel,VacancyModel,InterviewDetails,ComplaintModel,ChatModelAnother
+from .models import RegModel,UserModel,LoginModel,VacancyModel,InterviewDetails,ComplaintModel,ChatModelAnother,Resume
 # below regform class is for companies ,starts here
 class RegForm(forms.ModelForm):
     # above.modelform was in-built
@@ -139,3 +139,23 @@ class chatform(forms.ModelForm):
         widgets={
             'message':forms.Textarea(),
         }
+        
+class ResumeForm(forms.ModelForm):
+    class Meta:
+        model=Resume
+        fields=['Name', 'Email', 'Address', 'Phone', 'DOB', 'Objective', 'Education', 'Experience', 'Certification', 'Skills', 'Language', 'Reference']
+        widgets={
+            'Name' : forms.TextInput(attrs={'class': 'form-control'}),
+            'Email' : forms.EmailInput(attrs={'class' : 'form-control'}),
+            'Address' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Phone' : forms.NumberInput(attrs={'class': 'form-control'}),
+            'DOB' : forms.DateInput(attrs={'class': 'form-control'}),
+            'Objective' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Education' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Experience' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Certification' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Skills' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Language' : forms.Textarea(attrs={'class': 'form-control'}),
+            'Reference' : forms.Textarea(attrs={'class': 'form-control'}),
+        }
+        

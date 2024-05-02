@@ -6,6 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registeration</title>
 
+    <script>
+        window.onload = function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting initially
+    
+                // Perform validations
+                if (validateForm()) {
+                    form.submit(); // Submit the form if it's valid
+                }
+            });
+    
+            function validateForm() {
+                let isValid = true;
+                const name = document.querySelector('input[name="Name"]');
+                const gender = document.querySelector('input[name="Gender"]:checked');
+                const dob = document.querySelector('input[name="Date_Of_Birth"]');
+                const education = document.querySelector('input[name="Education"]');
+                const skills = document.querySelector('input[name="Skills"]');
+                const contactNumber = document.querySelector('input[name="Conatact_Number"]'); // Adjust the name if necessary
+                const email = document.querySelector('input[name="Email"]');
+                const password = document.querySelector('input[name="Password"]');
+    
+                // Reset previous errors
+                document.querySelectorAll('.error').forEach(e => e.remove());
+    
+                // Name validation
+                if (!name.value.trim()) {
+                    showError(name, 'Name is required.');
+                    isValid = false;
+                }
+    
+                // Gender validation
+                if (!gender) {
+                    showError(document.querySelector('label[for="id_Gender_0"]'), 'Gender is required.'); // assuming id_Gender_0 is the first radio button
+                    isValid = false;
+                }
+    
+                // Date of Birth validation
+                if (!dob.value.trim()) {
+                    showError(dob, 'Date of birth is required.');
+                    isValid = false;
+                }
+    
+                // Education validation
+                if (!education.value.trim()) {
+                    showError(education, 'Education details are required.');
+                    isValid = false;
+                }
+    
+                // Skills validation
+                if (!skills.value.trim()) {
+                    showError(skills, 'Skills are required.');
+                    isValid = false;
+                }
+    
+                // Contact number validation
+                if (!contactNumber.value.trim() || !/^\d{10}$/.test(contactNumber.value)) {
+                    showError(contactNumber, 'Enter a valid 10-digit contact number.');
+                    isValid = false;
+                }
+    
+                // Email validation
+                if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value)) {
+                    showError(email, 'Enter a valid email address.');
+                    isValid = false;
+                }
+    
+                // Password validation
+                if (password.value.length < 8) {
+                    showError(password, 'Password must be at least 8 characters long.');
+                    isValid = false;
+                }
+    
+                return isValid;
+            }
+    
+            function showError(field, message) {
+                const error = document.createElement('div');
+                error.textContent = message;
+                error.className = 'error';
+                error.style.color = 'red';
+                error.style.marginTop = '5px';
+                field.parentNode.insertBefore(error, field.nextSibling);
+            }
+        };
+    </script>
+    
+
 </head>
 <style>
     * {
@@ -126,7 +215,7 @@
         </div>
         <div class="content">
             <h4>Create an account</h4>
-            <form action="{% url 'userRegister' %}" method="POST">
+            <form action="" method="POST">
                 <!-- {% comment %} here the register name comes from the, urls that ius path name {% endcomment %} -->
                 {% csrf_token %}
                 {{ userforms.as_p }}
@@ -136,5 +225,7 @@
         </div>
     </div>
 </body>
+
+
 
 </html>

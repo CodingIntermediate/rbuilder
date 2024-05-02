@@ -1,0 +1,22 @@
+{% extends 'userheaderFooter.html' %}
+{% block content %}
+<form method ="post" action="">
+    <div>
+        {% csrf_token %}
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        <tr><td>{{from.}} {{form.}}</td></tr>
+        {{ form.as_p }}
+    </div>
+    <center><button type=""submit>Submit</button></center>
+</form>
+{% endblock %}

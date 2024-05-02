@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -63,24 +64,26 @@
         align-items: center;
         justify-content: center;
         padding: 20px 0px 20px 0px;
-        background-color:white;
+        background-color: white;
         /* flex-direction: row; */
         position: relative;
     }
-    #cards{
+
+    #cards {
         display: flex;
         justify-content: space-evenly;
         /* justify-content: end; */
         gap: 5rem;
 
     }
-    
-    #card_name{
+
+    #card_name {
         position: absolute;
         bottom: -50px;
         right: 1.8rem;
     }
-    #tail{
+
+    #tail {
         background-image: url('https://cdn.statically.io/img/timelinecovers.pro/facebook-cover/thumbs/abstract_blue_and_black_pixels-facebook-cover.jpg');
         height: 70vh;
         width: 100%;
@@ -91,31 +94,54 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        
+
 
     }
-    #tail_name{
+
+    #tail_name {
         position: absolute;
         font-size: 3rem;
-        color: rgb(143, 26, 26);
-        top: 10px;
+        color: rgb(245, 33, 33);
+        top: 15px;
     }
-    #tail_btn{
+
+    #tail_btn {
+
         position: absolute;
-        background-color: #e49e06;
+        background-color: rgb(235, 118, 9);
         padding: 6px 10px 6px 10px;
         border: none;
         outline: none;
         border-radius: 30px;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         cursor: pointer;
         width: 20%;
+        border: .5px solid rgb(255, 174, 0);
+        transition: all 1s ease-in-out;
+        box-shadow: 0px 0px 10px rgb(202, 143, 66);
+
+
+    }
+
+    #mainBtn {
+        background-color: rgb(235, 118, 9);
+        width: 30%;
+        border-radius: 30px;
+        border: none;
+        padding: 10px 15px 10px 15px;
+        font-size: 1.3rem;
+        font-weight: 600px;
+        color: rgb(7, 7, 7);
+        box-shadow: 0px 0px 10px rgb(202, 143, 66);
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+
     }
 </style>
 
 <body>
     <!-- Preloader -->
-   
+
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -127,7 +153,9 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="../UserPage" class="nav-brand"><h2 style="color: white;font-size: 1.1rem;width: 200px;">Resume Builder</h2></a>
+                        <a href="../UserPage" class="nav-brand">
+                            <h2 style="color: white;font-size: 1.1rem;width: 200px;">Resume Builder</h2>
+                        </a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -147,11 +175,11 @@
                                 <ul>
                                     <li><a href="{% url 'UserPage' %}">Home</a></li>
                                     <li><a href="{% url 'Jobs' %}">Available Jobs</a></li>
-                                    <li><a href="{% url 'Appliedjobs' %}">Applied Jobs</a></li>      
-                                    <a href="{% url 'viewUserProfile' %}" class="btn btn-info">View Profile</a>  
+                                    <li><a href="{% url 'Appliedjobs' %}">Applied Jobs</a></li>
+                                    <a href="{% url 'viewUserProfile' %}" class="btn btn-info">View Profile</a>
                                     <li><a href="{% url 'logouts' %}">Logout</a></li>
-                                     <li><a href="../complaint">Report</a></li>
-                                     <li><a href="{% url 'complaintReplyView' %}">Complaint Response</a></li>
+                                    <li><a href="../complaint">Report</a></li>
+                                    <li><a href="{% url 'complaintReplyView' %}">Complaint Response</a></li>
                                 </ul>
 
                             </div>
@@ -171,15 +199,19 @@
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url('https://www.naukri.com/campus/career-guidance/wp-content/uploads/2023/08/resume.jpg');"></div>
+                <div class="slide-img bg-img"
+                    style="background-image: url('https://www.naukri.com/campus/career-guidance/wp-content/uploads/2023/08/resume.jpg');">
+                </div>
                 <!-- Slide Content -->
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-slides-content text-center">
                                 <h6 data-animation="fadeInUp" data-delay="100ms">Latest Cv</h6>
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span></h2>
-                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span>
+                                </h2>
+                                <a data-animation="fadeInUp" data-delay="500ms" href="#"
+                                    class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -189,15 +221,19 @@
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(https://static.vecteezy.com/system/resources/previews/005/367/549/non_2x/illustration-of-resume-paper-with-magnifying-glass-suitable-for-design-element-of-job-vacancy-poster-recruitment-agency-website-background-and-resume-builder-service-vector.jpg);"></div>
+                <div class="slide-img bg-img"
+                    style="background-image: url(https://static.vecteezy.com/system/resources/previews/005/367/549/non_2x/illustration-of-resume-paper-with-magnifying-glass-suitable-for-design-element-of-job-vacancy-poster-recruitment-agency-website-background-and-resume-builder-service-vector.jpg);">
+                </div>
                 <!-- Slide Content -->
                 <div class="container">
-                    <div class="row">  
+                    <div class="row">
                         <div class="col-12">
                             <div class="hero-slides-content text-center">
                                 <h6 data-animation="fadeInUp" data-delay="100ms">Build with us</h6>
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib Music</span></h2>
-                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib
+                                        Music</span></h2>
+                                <a data-animation="fadeInUp" data-delay="500ms" href="#"
+                                    class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -207,14 +243,16 @@
     </section>
     <!-- ##### Hero Area End ##### -->
 
-       <!-- main start -->
-       <section id="main">
+    <!-- main start -->
+    <section id="main">
         <div id="main_left">
             <h3 id="title_main">Fast. Easy. Effective</h3>
             <h1 id="main_head">Resume. The Best CV <br> Maker Online.</h1>
             <p id="main_descr">If a sheet of paper represents your entire work life,<br> personality, and skills, it
                 better be a pretty amazing piece <br> of paper — Let Resume-Builder do the heavy lifting.
             </p>
+            <a href='../resumebuild'><button id="mainBtn">Create CV</button></a>
+
         </div>
         <div id="main_right">
             <div id="image_control">
@@ -231,17 +269,17 @@
             <div class="card">
                 <img src="https://assets.zety.com/lp/_next/image?url=/blobimages/zty/sem/images/step1.png&w=1920&h=undefined&q=100"
                     alt="">
-                    <h3 id="card_name">Pick a CV template.</h3>
-                </div>
+                <h3 id="card_name">Pick a CV template.</h3>
+            </div>
             <div class="card">
                 <img src="https://assets.zety.com/lp/_next/image?url=/blobimages/zty/sem/images/step2.png&w=1920&h=undefined&q=100"
                     alt="">
-                    <h3 id="card_name">Fill in the blanks.</h3>
-                </div>
+                <h3 id="card_name">Fill in the blanks.</h3>
+            </div>
             <div class="card">
                 <img src="https://assets.zety.com/lp/_next/image?url=/blobimages/zty/sem/images/step3.png&w=1920&h=undefined&q=100"
                     alt="">
-                    <h3 id="card_name">Customize your document.</h3>
+                <h3 id="card_name">Customize your document.</h3>
             </div>
         </div>
     </section>
@@ -249,7 +287,7 @@
 
     <!-- second last -->
     <section id="tail">
-        <h1 id="tail_name">Try Our professional <br> CV Builder now</h1>
+        <h1 id="tail_name">Try Our professional <br> CV Builder now.</h1>
         <button id="tail_btn">Land your dream job now</button>
     </section>
 
@@ -259,13 +297,17 @@
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><h2 style="color: white;font-size: 1.1rem;width: 200px;">Resume Builder</h2></a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    <a href="#">
+                        <h2 style="color: white;font-size: 1.1rem;width: 200px;">Resume Builder</h2>
+                    </a>
+                    <p class="copywrite-text"><a
+                            href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
 
-               
+
             </div>
         </div>
     </footer>

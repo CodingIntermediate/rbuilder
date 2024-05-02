@@ -82,4 +82,17 @@ class ComplaintModel(models.Model):
     date=models.DateTimeField(auto_now_add=True,null=True)
     reply=models.CharField(max_length=400)
 
-
+class Resume(models.Model):
+    Name=models.CharField(max_length = 50)
+    Email = models.EmailField(max_length=254)
+    Address=models.TextField(max_length=250)
+    Phone = models.IntegerField(max_length=15)
+    DOB = models.DateField()
+    Objective = models.CharField(max_length=600)
+    Education = models.CharField(max_length=1080)
+    Experience = models.CharField(max_length=1080)
+    Certification = models.CharField(max_length=1080)
+    Skills = models.CharField(max_length=500)
+    Language = models.CharField(max_length=200)
+    Reference = models.CharField(max_length=500)
+    
