@@ -83,6 +83,7 @@ class ComplaintModel(models.Model):
     reply=models.CharField(max_length=400)
 
 class Resume(models.Model):
+    # user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     Name=models.CharField(max_length = 50)
     Email = models.EmailField(max_length=254)
     Address=models.TextField(max_length=250)

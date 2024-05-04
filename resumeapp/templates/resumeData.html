@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 0.5;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 12px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #007bff;
+            text-transform: uppercase;
+            border-bottom: 5px solid #007bff;
+            padding-bottom: 15px;
+        }
+        h2 {
+            margin: 0;
+            color: #000000;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #007bff;
+            text-transform: uppercase;
+        }
+        .section p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .section ul li {
+            margin-bottom: 10px;
+        }
+        .section ul li strong {
+            font-weight: bold;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .print-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .print-button:hover {
+            background-color: #0056b3;
+        }
+        .print-button:focus {
+            outline: none;
+        }
+        b{
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    {% for personal_info1 in personal_info %}
+    <div class="container">
+        <div class="header">
+            <h1>Resume</h1>
+        </div>
+        <div class="section">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> {{ personal_info1.Name }}</p>
+            <p><strong>Email:</strong> {{ personal_info1.Email }}</p>
+            <p><strong>Phone:</strong> {{ personal_info1.Phone }}</p>
+            <p><strong>Address:</strong> {{ personal_info1.Address }}</p>
+            <p><strong>DOB:</strong> {{ personal_info1.DOB }}</p>
+
+        </div>
+        <div class="section">
+            <h2>Education</h2>
+           
+                <p><strong>{{ personal_info1.Education }}</strong></p>
+                <p><strong>Certificates:</strong> {{ personal_info1.Certification }}</p>
+        
+        </div>
+        <div class="section">
+            <h2>Experience</h2>
+           
+                <p><strong>Experience:</strong> {{ personal_info1.Experience }}</p>
+                <p><strong>Skills:</strong> {{ personal_info1.Skills }}</p>
+                <p><strong>Languages:</strong> {{ personal_info1.Language }}</p>
+
+                <p><strong>Objective:</strong> {{ personal_info1.Objective }}</p>
+        
+        </div>
+        <div class="section">
+            <h2>Reference</h2>
+           
+                <p> {{ personal_info1.Reference }}</p>
+                
+        
+        </div>
+    </div>
+    <button type="submit" onclick="windows.print()"></a>
+
+    {% endfor %}
+   
+</body>
+</html>

@@ -6,7 +6,8 @@ from django.contrib.auth import logout
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.timezone import now
-
+from xhtml2pdf import pisa
+from django.template.loader import get_template
 def companyRegister(request):
     if request.method == 'POST':
         form = RegForm(request.POST)
@@ -51,9 +52,9 @@ def userRegister(request):
         if form.is_valid():
             form.save()
             return redirect('userRegister')  
-    else:
-        usrform = UserForm()
-    return render(request, 'userRegister.html',{'userforms': usrform}) 
+        else:
+            usrform = UserForm()
+        return render(request, 'userRegister.html',{'userforms': usrform}) 
 # -------------------------------------------------------------------------------
 # below code is to  view registered users for company
 def userTable(request): 
@@ -408,3 +409,39 @@ def resume(request):
     else:
         form = ResumeForm()
     return render(request, 'Resume.html', {'form': form})
+
+# create a view for the resumnes
+def  resumes(request):
+    # Assuming the session key for user ID is 'userid'
+    uid = request.session.get('userid')
+
+    # Safely fetch the user or return 404
+    user = get_object_or_404(UserModel, id=uid)
+
+    # Filter resumes by user, assuming the ForeignKey in Resume model is named 'user'
+    resumeData = Resume.objects.filter(user=user)
+
+    # Render the page with resume data
+    return render(request, 'resumeData.html', {'data': resumeData})
+
+def generate_pdf(request):
+    personal_info = Resume.objects.all() 
+    
+    template_path = 'resumeData.html'
+    context = {
+        'personal_info': personal_info,
+    }
+    # Render template
+    template = get_template(template_path)
+    html = template.render(context)
+    
+    # Create a PDF
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="resume.pdf"'
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+

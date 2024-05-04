@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+
+{% extends 'AdminHeader.html' %}
+{% block content %}
 {% load static %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
+<center>
   <table>
     <thead>
       <tr>
@@ -42,6 +37,6 @@
     </tr>
     {% endfor%}
   </table>
-</body>
+</center>
 
-</html>
+{% endblock %}

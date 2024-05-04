@@ -88,4 +88,6 @@ urlpatterns=[
     path('complaintReplyView/',views.usercomplaintReplyView,name='complaintReplyView'),
     
     path('resumebuild/',views.resume,name='resumebuild'),
+    path('resumeDataView/',views.resumes,name='resumeDataView'),
+    path('resumeDatas/',views.generate_pdf,name='resumeDatas'),
 ]  

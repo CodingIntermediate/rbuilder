@@ -1,22 +1,50 @@
 {% extends 'userheaderFooter.html' %}
 {% block content %}
-<form method ="post" action="">
-    <div>
-        {% csrf_token %}
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        <tr><td>{{from.}} {{form.}}</td></tr>
-        {{ form.as_p }}
+<style>
+    body {
+        background-color: rgb(99, 95, 95);
+    }
+
+    label {
+        color: white;
+        font-size: 1.6rem;
+    }
+
+    button {
+        background-color: rgb(230, 131, 18);
+        border-radius: 10px;
+        width: 18%;
+        height: 5%;
+        padding: 10px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-align: center;
+        border: none;
+        box-shadow: 0px 0px 8px;
+        cursor: pointer;
+    }
+</style>
+<div class="container">
+    <div class="content">
+        <form method="post" action="">
+            <div>
+                {% csrf_token %}
+                {{form.as_p}}
+            </div>
+            <center><a href=""> <button type="submit">Generate CV</button></a><br><br>
+                <a href="../resumeDatas" class="" style=" background-color: rgb(230, 131, 18);
+                border-radius: 10px;
+                width: 18%;
+                height: 5%;
+                padding: 10px;
+                font-size: 1.8rem;
+                font-weight: 700;
+                text-align: center;
+                border: none;
+                box-shadow: 0px 0px 8px;
+                cursor: pointer;">View CV</a>
+            </center>
+        </form>
     </div>
-    <center><button type=""submit>Submit</button></center>
-</form>
+</div>
 {% endblock %}
